@@ -1,6 +1,6 @@
 import csv
 from flask import Flask, redirect, url_for, render_template, request, session, flash
-from datetime import timedelta
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "amanda"
@@ -29,7 +29,10 @@ def home():
 @app.route("/test", methods=["POST", "GET"])
 def test():
     questions = ["question 1 ", "question 2"]
-    return render_template("test.html", content=questions)
+    answers =request.form.getlist('answers[]')
+
+    return render_template("test.html", questions=questions)
+
 
 # @app.route("/scores")
 # def scores():

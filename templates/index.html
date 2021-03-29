@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
-<!--<html lang="en">-->
-<!--<head>-->
-<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
-<!--    <title>MIE237 Experiment G21</title>-->
-<!--</head>-->
 
-{%block title%}MIE237 Experiment G21{%endblock%}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+
+<html>
+
+<div class="title">Probability Quiz!</div>
 
 {%block content %}
-<form action="/test" method="post">
-    <p>are you excited for the test: </p>
-    <p><input type="text" name="test"></p>
-    <p><input type="submit" value="Start Test" /></p>
-</form>
+    <br>
+    <p>Thank you for participating in our experiment!</p>
+    <p>This quiz will have 5 introductory level probability questions.</p>
+    <p>There is no time limit, but please keep in mind this is only intended to take 10 minutes!</p>
+    <p>Your name, assessment score, and time to completion will be recorded for experimental purposes only and will not be shared.</p>
+    <p>If you have any questions or concerns please contact Amanda by email: amandachow898@gmail.com.</p>
+    <p></p>
+    <br>
+    <br>
+
+    <form action="/test" method="post" action="">
+        <label type="text">First and last name:</label>
+        <input type="text" name="name"/>
+        <button type="submit">Start Test</button>
+    </form>
 {% endblock %}
 
 

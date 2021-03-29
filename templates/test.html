@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{%block title%}Probability Assessment{%endblock%}
+{%block title%}Please do not navigate away from this page until you are finished!{%endblock%}
 
 {%block content %}
-<form action="#" method="post">
-
-<!--    <h1>Probability Assessment</h1>-->
-<!--    {% for x in content %}-->
-<!--        <p>{{x}}</p>-->
-<!--    {% endfor %}-->
-    <form action="#" method="post">
-        {% for x in content %}
+    <form action="/finish" method="post">
+        {% for x in questions %}
             <p>{{x}}</p>
-            <p><input type="text" name="answer"></p>
+            <p><input name="answer[]" type="number"></p>
+
+
+
+
         {% endfor %}
-        <p><input type="submit" value="Finish" /></p>
+        <p><input type="Submit" value="submit" /></p>
     </form>
 {% endblock %}
+
+

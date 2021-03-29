@@ -2,3 +2,36 @@ body {
   font-family: "helvetica", sans-serif;
   text-align: center;
 }
+
+
+.title {
+  font-size: 3.5em;
+  font-weight: bold;
+  color: saddlebrown;
+  margin-top: 80px;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+form {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+button {
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+label {
+    text-align: right;
+    clear: both;
+    float: left;
+    margin-right:15px;
+}
