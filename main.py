@@ -1,10 +1,8 @@
 import csv
-from flask import Flask, redirect, url_for, render_template, request, session, flash
+from flask import Flask, redirect, url_for, render_template, request, Response, g
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = "amanda"
-# app.permanent_session_lifetime = timedelta(minutes=20)
 
 
 @app.route("/")
@@ -14,31 +12,31 @@ def home():
 
 @app.route("/test", methods=["POST", "GET"])
 def test():
-    questions = ["1. An allergist claims that 50% of the patients she tests are allergic to some type of weed. "
-                 "What is the probability that exactly 3 of her next 4 patients are allergic to weeds? "
-                 "(Please round your answer to 2 d.p.) ",
-                 "2. A pair of fair dice is tossed. Find the probability of getting a roll with a total of 8. "
-                 "(Please round your answer to 2 d.p.) ",
-                 "3. The length of time for one individual to be served at a cafeteria is a random variable having "
-                 "an exponential distribution with a mean of 4 minutes. What is the variance of this distribution?  "
-                 "(Please round your answer to 2 d.p.) ",
-                 "4. The probability that a doctor correctly diagnoses a particular illness is 0.7. Given that "
-                 "the doctor makes an incorrect diagnosis, the probability that the patient files a lawsuit is 0.9. "
-                 "What is the probability that the doctor makes an incorrect diagnosis and the patient sues? "
-                 "(Please round your answer to 2 d.p.) ",
-                 "5. The waiting time, in minutes, between successive speeders spotted by a radar unit is a continuous "
-                 "random variable with CDF F(x) = 1 − e^(−0.5x), x ≥ 0. (0 otherwise)  Find the probability of waiting "
-                 "less than 3 minutes between successive speeders. (Please round your answer to 2 d.p.) "]
-    return render_template("test.html", questions=questions)
+    start = datetime.now().strftime("%H:%M:%S")
+    return render_template("test.html", start=start)
 
 
 @app.route("/handle_data", methods=['POST'])
 def handle_data():
-    answer = request.form["answer[]"]
-    return answer
+    score = 0
+    start = request.form.get('start')
+    end = datetime.now().strftime("%H:%M:%S")
+    if request.form.get('a1', type=float) == 0.25: score +=1
+    if request.form.get('a2', type=float) == 0.14: score +=1
+    if request.form.get('a3', type=float) == 16: score +=1
+    if request.form.get('a4', type=float) == 0.27: score +=1
+    if request.form.get('a5', type=float) == 0.78: score +=1
 
+    return 'Please copy and paste the bolded line into an email ' \
+           'and send it to ' \
+           '<em>amandacynthia.chow@mail.utoronto.ca. </em>' \
+           'And then you are all finished! Thanks again for your participation. </p>' \
+           '<br>' \
+           '<b>Score: {},  Start time: {},  End time: {}</b>'.format(score, start, end)
 
 
 
 if __name__ == "__main__":
-    app.run(host ='0.0.0.0')
+    app.run()
+    print(handle_data)
+

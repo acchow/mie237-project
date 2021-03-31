@@ -3,11 +3,35 @@
 {%block title%}Please do not navigate away from this page until you are finished!{%endblock%}
 
 {%block content %}
-    <form action="/finish" method="post">
-        {% for x in questions %}
-            <p>{{x}}</p>
-            <p><input name="answer" type="number" step="any"></p>
-        {% endfor %}
+
+    <form action="{{url_for('handle_data')}}" method="POST">
+
+        <input name="start" value = {{start}} type="hidden">
+
+        <p>1. An allergist claims that 50% of the patients she tests are allergic to some type of weed.
+            What is the probability that exactly 3 of her next 4 patients are allergic to weeds?
+            (Please round your answer to 2 d.p.) "</p>
+        <p><input name="a1" type="number" step="any"></p>
+
+        <p>2. A pair of fair dice is tossed. Find the probability of getting a roll with a total of 8.
+            (Please round your answer to 2 d.p.)"</p>
+        <p><input name="a2" type="number" step="any"></p>
+
+        <p>3. The length of time for one individual to be served at a cafeteria is a random variable having
+            an exponential distribution with a mean of 4 minutes. What is the variance of this distribution?</p>
+        <p><input name="a3" type="number" step="any"></p>
+
+        <p>4. The probability that a doctor correctly diagnoses a particular illness is 0.7. Given that
+            the doctor makes an incorrect diagnosis, the probability that the patient files a lawsuit is 0.9.
+            What is the probability that the doctor makes an incorrect diagnosis and the patient sues?
+            (Please round your answer to 2 d.p.)</p>
+        <p><input name="a4" type="number" step="any"></p>
+
+        <p>5. The waiting time, in minutes, between successive speeders spotted by a radar unit is a continuous
+            random variable with CDF F(x) = 1 − e^(−0.5x), x ≥ 0. (0 otherwise)  Find the probability of waiting
+            less than 3 minutes between successive speeders. (Please round your answer to 2 d.p.)</p>
+        <p><input name="a5" type="number" step="any"></p>
+
         <p><input type="submit" value="Submit" /></p>
     </form>
 {% endblock %}

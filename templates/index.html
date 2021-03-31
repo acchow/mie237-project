@@ -9,14 +9,16 @@
 {%block content %}
     <br>
     <p>Thank you for participating in our experiment!</p>
-    <p>This quiz will have 5 introductory level probability questions.</p>
-    <p>There is no time limit, but please keep in mind this is only intended to take 10 minutes!</p>
-    <p>Your name, assessment score, and time to completion will be recorded for experimental purposes only and will not be shared.</p>
+    <p>This quiz will have 5 introductory level probability questions. Please grab a calculator before you begin.</p>
+    <p>There is no time limit, however please try to finish as quickly and as accurately as possible
+        (this will give us the best results :))</p>
+    <p>Your assessment score and time to completion will be recorded for experimental
+        purposes only and will not be shared.</p>
     <br>
     <br>
 
     <form action="/test" method="post" action="">
-        <label type="text">First and last name:</label>
+        <label type="text">Your name (optional):</label>
         <input type="text" name="name"/>
         <button type="submit">Start Test</button>
     </form>
