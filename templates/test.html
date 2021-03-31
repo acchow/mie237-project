@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 {%block title%}Please do not navigate away from this page until you are finished!{%endblock%}
 
@@ -7,13 +6,9 @@
     <form action="/finish" method="post">
         {% for x in questions %}
             <p>{{x}}</p>
-            <p><input name="answer[]" type="number"></p>
-
-
-
-
+            <p><input name="answer" type="number" step="any"></p>
         {% endfor %}
-        <p><input type="Submit" value="submit" /></p>
+        <p><input type="submit" value="Submit" /></p>
     </form>
 {% endblock %}
 
